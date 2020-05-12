@@ -42,6 +42,10 @@ def possible_pawn(board, n, p, player, i, j):
     pawn = board[i][j]
     way = 0
 
+    # Pawn selected doesn't belong to player
+    if pawn != player:
+        return False, forward_move, diagonal_left, diagonal_right
+
     if pawn == 1:
         way = 1
     elif pawn == 2:
@@ -53,7 +57,7 @@ def possible_pawn(board, n, p, player, i, j):
     if 0 < row < n:
         pass
     else:
-        return False
+        return False, forward_move, diagonal_left, diagonal_right
 
     # Defining the possible moves. Try except blocks are used in the case that
     # a move is outside of the board (which will return an index out of range error).
