@@ -167,13 +167,10 @@ def not_finished(board, n, player):
     # Check if enemy player is in the last row of the enemy side
     if player == 1:
         if 2 in board[start_index]:
-            print("waypoint 1")
-            print(start_index)
             return False
+
     elif player == 2:
         if 1 in board[start_index]:
-            print(start_index)
-            print("waypoint 2")
             return False
 
     return True
@@ -200,7 +197,7 @@ def breaktrough(n, p):
     to_row, to_col = select_destination(board, n, p, current_player, from_row, from_col)
     board = put_pawn(board, from_row, from_col, to_row, to_col, current_player)
     game_in_progress = not_finished(board, n, current_player)
-    print(game_in_progress)
+    print("----------------------")
     display(board, n, p)
     current_player = switch_player(current_player)
     print("----------------------")
@@ -211,6 +208,7 @@ def breaktrough(n, p):
         to_row, to_col = select_destination(board, n, p, current_player, from_row, from_col)
         board = put_pawn(board, from_row, from_col, to_row, to_col, current_player)
         game_in_progress = not_finished(board, n, current_player)
+        print("----------------------")
         display(board, n, p)
         current_player = switch_player(current_player)
         print("----------------------")
